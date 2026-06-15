@@ -38,9 +38,36 @@ function saas-factory-gentle { node 'C:\Proyectos\saas-factory-gentle-ai\bin\ins
 ```
 *Recordá reiniciar la consola o recargar el perfil ejecutando `. $PROFILE` para activar el comando.*
 
-### 5. Sincronizar la memoria de tus proyectos (Engram)
+---
+
+## Flujo de Trabajo en Proyectos Nuevos y Existentes
+
+Una vez que el sistema global esté configurado, debés inicializar las herramientas específicas en cada proyecto donde vayas a trabajar.
+
+### 5. Configurar el Guardián de Git (GGA) en tu repositorio
+En la carpeta raíz de tu proyecto, ejecutá estos dos comandos para activar las auditorías antes de cada commit:
+
+```powershell
+# 1. Genera la configuración de auditoría y el archivo de reglas de código (AGENTS.md)
+gga init
+
+# 2. Instala el hook git pre-commit en tu repositorio local
+gga install
+```
+*A partir de ahora, cada commit será auditado automáticamente para evitar fugas de secrets o código defectuoso.*
+
+### 6. Inicializar el contexto del Agente (/sdd-init)
+Cuando abras tu agente de IA (como Claude Code, Gemini o el orquestador de OpenCode) en tu proyecto, el agente debe cargar las directrices de desarrollo.
+
+* **Ejecución manual:** Podés correr el comando directo en el chat del agente:
+  ```text
+  /sdd-init
+  ```
+* **Ejecución automática:** Si te olvidás, el orquestador de Gentle-AI tiene un guardián de contexto (*Init Guard*) en sus reglas del sistema que detectará que falta la inicialización y correrá `/sdd-init` de forma automática la primera vez que le pidas hacer algo.
+
+### 7. Sincronizar la memoria de tus proyectos (Engram)
 * **Si usás el modo basado en archivos (default):** El historial de decisiones, bugs y contexto del proyecto se guardan dentro de la propia carpeta del repositorio (en `.claude/memory` u `.atl/`). Al clonar el proyecto en tu otra máquina, el agente leerá el historial de forma nativa.
-* **Si usás base de datos remota:** Configurá la sincronización remota con:
+* **Si usás base de datos remota:** Sincronizá la memoria de la base de datos de Engram corriendo:
   ```powershell
   engram sync --cloud
   ```
