@@ -40,6 +40,37 @@ function saas-factory-gentle { node 'C:\Proyectos\saas-factory-gentle-ai\bin\ins
 
 ---
 
+## Cómo Actualizar/Migrar un Proyecto Existente (SaaS Factory sin Gentle-AI)
+
+Si tenés un proyecto desarrollado previamente con la SaaS Factory clásica y querés sumarle toda la potencia de Gentle-AI (memoria persistente, orquestación de fases y habilidades avanzadas), seguí estos pasos:
+
+### 1. Parate en la carpeta del proyecto existente en tu terminal
+```powershell
+cd C:\Ruta\De\Tu\ProyectoExistente
+```
+
+### 2. Ejecutá el instalador rápido
+Corré el comando de inyección que configuramos globalmente en el sistema:
+```powershell
+saas-factory-gentle
+```
+*Esto inyectará los archivos `.claude/`, `gentle-ai/`, `CLAUDE.md`, `GEMINI.md` y `.env.local.example` en la raíz de tu proyecto, y combinará las dependencias en tu `package.json` sin alterar tu código.*
+
+### 3. Actualizá las dependencias de Node
+```powershell
+npm install
+```
+
+### 4. Inicializá el Agente y activa el Guardián de Git
+* Abrí tu agente de IA en la carpeta del proyecto y ejecutá `/sdd-init` (o dejá que se ejecute solo la primera vez que arranques una tarea).
+* Si aún no lo tenías instalado en ese repositorio, inicializá el gancho de Git para auditar commits:
+  ```powershell
+  gga init
+  gga install
+  ```
+
+---
+
 ## Flujo de Trabajo en Proyectos Nuevos y Existentes
 
 Una vez que el sistema global esté configurado, debés inicializar las herramientas específicas en cada proyecto donde vayas a trabajar.
