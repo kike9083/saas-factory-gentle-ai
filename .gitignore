@@ -63,3 +63,5 @@ Thumbs.db
 # Supabase
 supabase/.branches
 supabase/.temp
+# Local AI runtime state
+.atl/

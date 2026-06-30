@@ -7,7 +7,7 @@
 (vacio)
 
 ## project/ — Proyectos y decisiones activas
-(vacio)
+- [dcom-manager.md](./project/dcom-manager.md) - Monitoreo y Limpieza DCOM Centralizado (11-Jun-2026)
 
 ## feedback/ — Correcciones y preferencias
 (vacio)
