@@ -199,7 +199,7 @@ export default function ValidatorDashboard() {
       <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-blue-500 rounded-full blur-[180px] opacity-10 pointer-events-none"></div>
 
       {/* Main Content Layout */}
-      <div className="max-w-7xl mx-auto px-6 relative z-10 pt-10">
+      <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 relative z-10 pt-10">
         
         {/* Header */}
         <header className="flex flex-col md:flex-row md:items-center justify-between border-b border-white/10 pb-8 mb-8 gap-4">
@@ -453,7 +453,7 @@ export default function ValidatorDashboard() {
             </div>
 
             {/* Grid of Servers */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5">
               {servers.map((server) => {
                 const hasZombies = server.excelCount > 0 || server.wordCount > 0;
                 
